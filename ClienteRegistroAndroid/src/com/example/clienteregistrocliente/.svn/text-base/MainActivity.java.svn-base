@@ -1,0 +1,152 @@
+package com.example.clienteregistrocliente;
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+
+import com.example.clienteregistrocliente.R;
+import com.example.clienteregistrocliente.ClienteVO;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	TextView tvNombre;
+	TextView tvApellidoM;
+	TextView tvApellidoP;
+	TextView tvCelular;
+	TextView tvCorreo;
+	TextView tvDireccion;
+	TextView tvRut;
+	TextView tvDV;
+
+	EditText etNombre;
+	EditText etApellidoM;
+	EditText etApellidoP;
+	EditText etCelular;
+	EditText etCorreo;
+	EditText etDireccion;
+	EditText etRut;
+	EditText etDV;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		etNombre = (EditText)findViewById(R.id.editText1);
+		etApellidoM = (EditText)findViewById(R.id.editText2);
+		etApellidoP = (EditText)findViewById(R.id.editText3);
+		etCelular = (EditText)findViewById(R.id.editText4);
+		etCorreo = (EditText)findViewById(R.id.editText5);
+		etDireccion = (EditText)findViewById(R.id.editText6);
+		etRut = (EditText)findViewById(R.id.editText7);
+		etDV = (EditText)findViewById(R.id.editText8);
+
+		tvNombre = (TextView)findViewById(R.id.Nombre);
+		tvApellidoM = (TextView)findViewById(R.id.ApellidoM);
+		tvApellidoP = (TextView)findViewById(R.id.ApellidoP);
+		tvCelular = (TextView)findViewById(R.id.Celular);
+		tvCorreo = (TextView)findViewById(R.id.Correo);
+		tvDireccion = (TextView)findViewById(R.id.Direccion);
+		tvRut = (TextView)findViewById(R.id.Rut);
+		tvDV = (TextView)findViewById(R.id.DV);
+		
+		Button btn=(Button)findViewById(R.id.button1);
+
+		btn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				System.out.println("clickeaste el boton!");
+				TareaWSInsercion2 tarea = new TareaWSInsercion2();
+				tarea.execute();                
+			}});
+	}
+
+
+
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+	// Inflate the menu; this adds items to the action bar if it is present.
+	getMenuInflater().inflate(R.menu.main, menu);
+	return true;
+}
+
+
+private class TareaWSInsercion2 extends AsyncTask<String,Integer,Boolean> {
+
+
+
+	protected Boolean doInBackground(String... params) {
+
+		boolean resul = true;
+		System.out.println("llegamos a tareaWSInsercion2");
+		final String NAMESPACE = "http://webservice";
+		final String URL= "http://192.168.1.152:8080/ServerTA2/services/ServicioMovil?wsdl";
+		final String METHOD_NAME = "agregarCliente";
+		final String SOAP_ACTION = "http://webservice/agregarCliente";
+
+		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+		
+		ClienteVO oClienteVO = new ClienteVO(etNombre.getText().toString(), etApellidoM.getText().toString(),
+				etApellidoP.getText().toString(),
+				etCelular.getText().toString(),
+				etCorreo.getText().toString(),
+				etDireccion.getText().toString(),
+				etRut.getText().toString(),
+				etDV.getText().toString());
+		
+		//AdministradorVO admin = new AdministradorVO(et2.getText().toString(),et.getText().toString());
+
+		Gson gson = new Gson();
+		String clienteVO= gson.toJson(oClienteVO);
+
+		request.addProperty("json", clienteVO);
+
+		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+		envelope.dotNet = true; 
+
+		envelope.setOutputSoapObject(request);
+
+		envelope.addMapping(NAMESPACE, "ClienteVO", oClienteVO.getClass());
+
+		HttpTransportSE transporte = new HttpTransportSE(URL);
+
+		try 
+		{
+			System.out.println("llegamos al try :B");
+			transporte.call(SOAP_ACTION, envelope);
+
+			SoapPrimitive resultado_xml =(SoapPrimitive)envelope.getResponse();
+			String res = resultado_xml.toString();
+			System.out.println(res);
+
+			if(!res.equals("1"))
+				resul = false;
+		} 
+		catch (Exception e) 
+		{
+			resul = false;
+
+		}  
+
+		return resul;
+	}
+
+}
+
+}

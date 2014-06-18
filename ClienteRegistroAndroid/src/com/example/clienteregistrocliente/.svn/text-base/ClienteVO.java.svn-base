@@ -1,0 +1,244 @@
+/*
+ * @author Rodrigo Leal
+ */
+package com.example.clienteregistrocliente;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ClienteVO.
+ */
+public class ClienteVO {
+	
+	/** The id cliente. */
+	private int idCliente;
+	
+	/** The nombre. */
+	private String nombre;
+	
+	/** The apellido m. */
+	private String apellidoM;
+	
+	/** The apellido p. */
+	private String apellidoP;
+	
+	/** The celular. */
+	private String celular;
+	
+	/** The correo. */
+	private String correo;
+	
+	/** The direccion. */
+	private String direccion;
+	
+	/** The rut. */
+	private String rut;
+	
+	/** The dv. */
+	private String dv;
+	
+	/**
+	 * Gets the id cliente.
+	 *
+	 * @return the idCliente
+	 */
+	public int getIdCliente() {
+		return idCliente;
+	}
+	
+	/**
+	 * Sets the id cliente.
+	 *
+	 * @param idCliente the idCliente to set
+	 */
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+	
+	/**
+	 * Gets the nombre.
+	 *
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+	
+	/**
+	 * Sets the nombre.
+	 *
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	/**
+	 * Gets the apellido m.
+	 *
+	 * @return the apellidoM
+	 */
+	public String getApellidoM() {
+		return apellidoM;
+	}
+	
+	/**
+	 * Sets the apellido m.
+	 *
+	 * @param apellidoM the apellidoM to set
+	 */
+	public void setApellidoM(String apellidoM) {
+		this.apellidoM = apellidoM;
+	}
+	
+	/**
+	 * Gets the apellido p.
+	 *
+	 * @return the apellidoP
+	 */
+	public String getApellidoP() {
+		return apellidoP;
+	}
+	
+	/**
+	 * Sets the apellido p.
+	 *
+	 * @param apellidoP the apellidoP to set
+	 */
+	public void setApellidoP(String apellidoP) {
+		this.apellidoP = apellidoP;
+	}
+	
+	/**
+	 * Gets the celular.
+	 *
+	 * @return the celular
+	 */
+	public String getCelular() {
+		return celular;
+	}
+	
+	/**
+	 * Sets the celular.
+	 *
+	 * @param celular the celular to set
+	 */
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+	
+	/**
+	 * Gets the correo.
+	 *
+	 * @return the correo
+	 */
+	public String getCorreo() {
+		return correo;
+	}
+	
+	/**
+	 * Sets the correo.
+	 *
+	 * @param correo the correo to set
+	 */
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	
+	/**
+	 * Gets the direccion.
+	 *
+	 * @return the direccion
+	 */
+	public String getDireccion() {
+		return direccion;
+	}
+	
+	/**
+	 * Sets the direccion.
+	 *
+	 * @param direccion the direccion to set
+	 */
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	
+	/**
+	 * Gets the rut.
+	 *
+	 * @return the rut
+	 */
+	public String getRut() {
+		return rut;
+	}
+	
+	/**
+	 * Sets the rut.
+	 *
+	 * @param rut the rut to set
+	 */
+	public void setRut(String rut) {
+		this.rut = rut;
+	}
+	
+	/**
+	 * Gets the dv.
+	 *
+	 * @return the dv
+	 */
+	public String getDv() {
+		return dv;
+	}
+	
+	/**
+	 * Sets the dv.
+	 *
+	 * @param dv the dv to set
+	 */
+	public void setDv(String dv) {
+		this.dv = dv;
+	}
+	
+	/**
+	 * Instantiates a new cliente vo.
+	 *
+	 * @param nombre the nombre
+	 * @param apellidoM the apellido m
+	 * @param apellidoP the apellido p
+	 * @param celular the celular
+	 * @param correo the correo
+	 * @param direccion the direccion
+	 * @param rut the rut
+	 * @param dv the dv
+	 */
+	public ClienteVO(String nombre, String apellidoM, String apellidoP,
+			String celular, String correo, String direccion, String rut,
+			String dv) {
+		this.nombre = nombre;
+		this.apellidoM = apellidoM;
+		this.apellidoP = apellidoP;
+		this.celular = celular;
+		this.correo = correo;
+		this.direccion = direccion;
+		this.rut = rut;
+		this.dv = dv;
+	}
+	
+	/**
+	 * Instantiates a new cliente vo.
+	 */
+	public ClienteVO() {
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ClienteVO [idCliente=" + idCliente + ", nombre=" + nombre
+				+ ", apellidoM=" + apellidoM + ", apellidoP=" + apellidoP
+				+ ", celular=" + celular + ", correo=" + correo
+				+ ", direccion=" + direccion + ", rut=" + rut + ", dv=" + dv
+				+ "]";
+	}
+	
+	
+}
