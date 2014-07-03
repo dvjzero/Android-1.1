@@ -19,7 +19,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrar Cliente" />
+        android:text="Registrar Usuario ChileDenuncia" />
     
     <TextView
         android:id="@+id/Nombre"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText1"
         android:layout_marginTop="10dp"
-        android:text="Apellido Materno" />
+        android:text="ApellidoM" />
 
     <EditText
         android:id="@+id/editText2"
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText2"
         android:layout_marginTop="10dp"
-        android:text="Apellido Paterno" />
+        android:text="ApellidoP" />
 
     <EditText
         android:id="@+id/editText3"
@@ -129,7 +129,7 @@
         android:layout_alignRight="@+id/editText1"
         android:layout_below="@+id/editText5"
         android:layout_marginTop="40dp"
-        android:text="Registrar" />
+        android:text="Registrar Usuario" />
 
 </RelativeLayout>
 </ScrollView>
